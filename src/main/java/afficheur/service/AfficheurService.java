@@ -1,12 +1,10 @@
 package afficheur.service;
 
-import java.util.Set;
-
-import groupeur.model.GroupeDeParticipants;
+import groupeur.model.GroupesDeParticipants;
 
 public class AfficheurService {
 
-	public AfficheurService(Set<GroupeDeParticipants> groupes) {
+	public AfficheurService(GroupesDeParticipants groupes) {
 		// TODO Auto-generated constructor stub
 	}
 
