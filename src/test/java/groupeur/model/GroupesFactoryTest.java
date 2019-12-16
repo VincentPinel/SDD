@@ -16,7 +16,7 @@ public class GroupesFactoryTest {
 
 	@Test
 	void quandDeclare_1Groupe_renvoieUnEnsembleDe1Groupe() {
-		Set<GroupeDeParticipants> groupesDeclares = new GroupesFactory(UN_GROUPE).declareGroupes();
+		Set<GroupeDeParticipants> groupesDeclares = new GroupesFactory(UN_GROUPE, 0).declareGroupes();
 		
 		assertThat(groupesDeclares, contains(any(GroupeDeParticipants.class)));
 		assertThat(groupesDeclares.size(), is(1));
@@ -24,7 +24,7 @@ public class GroupesFactoryTest {
 	
 	@Test
 	void quandDeclare_3Groupes_renvoieUnEnsembleDe3Groupes() {
-		Set<GroupeDeParticipants> groupesDeclares = new GroupesFactory(TROIS_GROUPES).declareGroupes();
+		Set<GroupeDeParticipants> groupesDeclares = new GroupesFactory(TROIS_GROUPES, 0).declareGroupes();
 		
 		assertThat(groupesDeclares, contains(any(GroupeDeParticipants.class), any(GroupeDeParticipants.class), any(GroupeDeParticipants.class)));
 		assertThat(groupesDeclares.size(), is(3));

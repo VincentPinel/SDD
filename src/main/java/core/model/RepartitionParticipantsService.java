@@ -17,7 +17,7 @@ public class RepartitionParticipantsService {
 		FichierParticipantsParserService parser = new FichierParticipantsParserService();
 		Set<Participant> participants = parser.donneParticipants();
 		int nombreGroupes = new CreateurDeGroupes(participants.size(), tailleDesGroupes).determineNombreGroupes();
-		Set<GroupeDeParticipants> groupesDeclares = new GroupesFactory(nombreGroupes).declareGroupes();
+		Set<GroupeDeParticipants> groupesDeclares = new GroupesFactory(nombreGroupes, tailleDesGroupes).declareGroupes();
 		GroupesDeParticipants groupesARemplir = new GroupesDeParticipants(groupesDeclares);
 		GroupesDeParticipants groupesFormes = new Groupeur(participants, groupesARemplir).groupe();
 		new AfficheurService(groupesFormes).affiche();

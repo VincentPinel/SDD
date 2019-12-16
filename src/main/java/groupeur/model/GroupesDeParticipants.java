@@ -11,6 +11,9 @@ public class GroupesDeParticipants {
 	}
 
 	public void assigne(Participant participant) {
+		for (GroupeDeParticipants groupe : groupes) {
+			
+		}
 	}
 
 }
