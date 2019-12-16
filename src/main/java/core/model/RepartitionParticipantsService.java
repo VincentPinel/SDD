@@ -5,8 +5,10 @@ import java.util.Set;
 import afficheur.service.AfficheurService;
 import groupeur.model.CreateurDeGroupes;
 import groupeur.model.GroupeDeParticipants;
+import groupeur.model.GroupesDeParticipants;
+import groupeur.model.GroupesFactory;
+import groupeur.model.Groupeur;
 import groupeur.model.Participant;
-import groupeur.service.Groupeur;
 import parser.service.FichierParticipantsParserService;
 
 public class RepartitionParticipantsService {
@@ -14,8 +16,10 @@ public class RepartitionParticipantsService {
 	public void repartit(int tailleDesGroupes) {
 		FichierParticipantsParserService parser = new FichierParticipantsParserService();
 		Set<Participant> participants = parser.donneParticipants();
-		Set<GroupeDeParticipants> groupesVides = new CreateurDeGroupes(participants.size(), tailleDesGroupes).creeGroupes();
-		Set<GroupeDeParticipants> groupesFormes = new Groupeur().groupe(participants, groupesVides);
+		int nombreGroupes = new CreateurDeGroupes(participants.size(), tailleDesGroupes).determineNombreGroupes();
+		Set<GroupeDeParticipants> groupesDeclares = new GroupesFactory(nombreGroupes).declareGroupes();
+		GroupesDeParticipants groupesARemplir = new GroupesDeParticipants(groupesDeclares);
+		GroupesDeParticipants groupesFormes = new Groupeur(participants, groupesARemplir).groupe();
 		new AfficheurService(groupesFormes).affiche();
 	}
 
