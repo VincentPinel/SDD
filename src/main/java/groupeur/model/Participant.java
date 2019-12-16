@@ -9,7 +9,7 @@ public class Participant {
 	String ville;
 	String squad;
 	String role;
-	
+
 	public Participant(String nom, String prenom, String sexe, String ville,
 			String squad, String role) {
 		this.nom = nom;
@@ -19,7 +19,7 @@ public class Participant {
 		this.squad = squad;
 		this.role = role;
 	}
-	
+
 	public Participant(Row row) {
 		this.nom = row.getCell(0).toString();
 		this.prenom = row.getCell(1).toString();
@@ -28,4 +28,5 @@ public class Participant {
 		this.squad = row.getCell(5).toString();
 		this.role = row.getCell(6).toString();
 	}
+	
 }
