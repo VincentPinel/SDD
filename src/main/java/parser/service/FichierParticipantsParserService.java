@@ -43,6 +43,6 @@ public class FichierParticipantsParserService {
 	}
 
 	private Set<Participant> mapRowsToParticipants(XSSFSheet sheet) {
-		return StreamSupport.stream(sheet.spliterator(), false).filter(row -> row.getRowNum() != 0).map(row -> new Participant(row)).collect(Collectors.toSet());
+		return StreamSupport.stream(sheet.spliterator(), true).filter(row -> row.getRowNum() != 0).map(row -> new Participant(row)).collect(Collectors.toSet());
 	}
 }
