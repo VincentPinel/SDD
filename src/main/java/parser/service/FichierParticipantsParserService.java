@@ -18,7 +18,7 @@ public class FichierParticipantsParserService {
 
 	public Set<Participant> donneParticipants() {
 		File excelFile = new File(getClass().getClassLoader()
-				.getResource("Participants.xlsx").getFile());
+				.getResource("./Participants.xlsx").getFile());
 
 		Set<Participant> participants = new HashSet<Participant>();
 		try {
